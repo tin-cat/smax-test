@@ -14,15 +14,14 @@
 </head>
 <body><?php
 
-	define("SMAX_DIR", ".."); // Must contain the path to SMAX lib directory
-	include SMAX_DIR."/smax.inc.php"; // Include SMAX definitions
-	include SMAX_DIR."/smax.config.php"; // Include your desired SMAX configuration
+	require "	vendor/autoload.php";
+	// require __DIR__."/../smax/vendor/autoload.php";
 
 	echo "<h1>".Smax\Main::getVersionInfo()." tests</h1>";
 
 	echo "<ul class=properties>\n";
 	array_walk(Smax\Main::getConfigInfo(), function($value, $key){ echo "<li><span>$key</span><span>$value</span></li>\n"; });
-	echo  "</ul>\n";
+	echo  "</ul>\n";	
 
 	echo "<hr>\n";
 
@@ -31,66 +30,66 @@
 	$secondsIntervalBetweenSteps = 60;
 
 	// Simple humanist
-	$set = new Smax\Set(array(
-		new Smax\RatingDefault(array(
+	$set = new Smax\Set([
+		new Smax\RatingDefault([
 			"timestamp" => $now,
 			"attitude" => Smax\ATTITUDE_HUMANIST
-		)),
-		new Smax\RatingFromOwner(array(
+		]),
+		new Smax\RatingFromOwner([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_SAFE
-		)),
-		new Smax\RatingFromOther(array(
+		]),
+		new Smax\RatingFromOther([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_MODERATE
-		)),
-		new Smax\RatingFromOther(array(
+		]),
+		new Smax\RatingFromOther([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_MODERATE
-		)),
-		new Smax\RatingFromOther(array(
+		]),
+		new Smax\RatingFromOther([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_MODERATE
-		)),
-	), Smax\ATTITUDE_HUMANIST);
+		]),
+	], Smax\ATTITUDE_HUMANIST);
 	echo $set->getDebugInfoHtml("Simple");
 
 	// Simple skeptical
-	$set = new Smax\Set(array(
-		new Smax\RatingDefault(array(
+	$set = new Smax\Set([
+		new Smax\RatingDefault([
 			"timestamp" => $now,
 			"attitude" => Smax\ATTITUDE_SKEPTICAL
-		)),
-		new Smax\RatingFromOwner(array(
+		]),
+		new Smax\RatingFromOwner([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_SAFE
-		)),
-		new Smax\RatingFromOther(array(
+		]),
+		new Smax\RatingFromOther([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_MODERATE
-		))
-	), Smax\ATTITUDE_SKEPTICAL);
+		])
+	], Smax\ATTITUDE_SKEPTICAL);
 	echo $set->getDebugInfoHtml("Simple");
 
 	// Simple moderated
-	$set = new Smax\Set(array(
-		new Smax\RatingDefault(array(
+	$set = new Smax\Set([
+		new Smax\RatingDefault([
 			"timestamp" => $now,
 			"attitude" => Smax\ATTITUDE_HUMANIST
-		)),
-		new Smax\RatingFromOwner(array(
+		]),
+		new Smax\RatingFromOwner([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_MODERATE
-		)),
-		new Smax\RatingFromOther(array(
+		]),
+		new Smax\RatingFromOther([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
 			"rating" => Smax\RATING_MODERATE
-		)),
-		new Smax\RatingFromModerator(array(
+		]),
+		new Smax\RatingFromModerator([
 			"timestamp" => $now+=$secondsIntervalBetweenSteps,
-			"rating" => Smax\RATING_MODERATE
-		))
-	), Smax\ATTITUDE_HUMANIST);
+			"rating" => Smax\RATING_EXPLICIT
+		])
+	], Smax\ATTITUDE_HUMANIST);
 	echo $set->getDebugInfoHtml("Simple moderated");
 
 ?></body>
