@@ -1,0 +1,5 @@
+{
+	"require": {
+        "tin-cat/smax": "dev-master"
+    }
+}

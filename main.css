@@ -1,0 +1,88 @@
+body {
+	background: #fff;
+	font-family: Inconsolata, "Courier New", Courier, sans-serif;
+	font-size: 10pt;
+	color: #222;
+	padding: 20px;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: "Trebuchet MS", Arial;
+	line-height: 1.2em;
+	margin: 0 0 0.2em 0;
+}
+
+hr {
+	clear: both;
+	border: 0;
+	height: 1px;
+	border-top: solid #ddd 1px;
+	margin: 20px 0 0 0;
+	padding: 0 0 20px 0;
+}
+
+ul.properties {	
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+	border: solid #ddd 1px;
+}
+
+ul.properties > li {
+	overflow: hidden;
+	border-bottom: solid #ddd 1px;
+}
+
+ul.properties > li:last-child {
+	border-bottom: none;
+}
+
+ul.properties > li:nth-child(odd) {
+	background: #f0f0f0;
+}
+
+ul.properties > li > span {
+	padding: 0.5em;
+	white-space: normal;
+}
+
+ul.properties > li > span:nth-child(1) {
+	float: left;
+}
+
+ul.properties > li > span:nth-child(2) {
+	float: right;
+	font-weight: bold;
+}
+
+.propertiesHorizontalList {
+	white-space: nowrap;
+}
+
+.propertiesHorizontalList > ul.properties{
+	margin: 10px 5px 0 0;
+	width: 15%;
+}
+
+table {
+	font-size: 1em;
+	border-spacing: 0;
+}
+
+table tr {
+}
+
+table th {
+	text-align: left;
+	background: #f4f4f4;
+	font-family: "Trebuchet MS", Arial;
+}
+
+table td,
+table th {
+	padding: 0.45em 0.6em;
+	margin: 0;
+}
