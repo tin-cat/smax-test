@@ -14,7 +14,7 @@
 </head>
 <body><?php
 
-	require "	vendor/autoload.php";
+	require "vendor/autoload.php";
 	// require __DIR__."/../smax/vendor/autoload.php";
 
 	echo "<h1>".Smax\Main::getVersionInfo()." tests</h1>";
